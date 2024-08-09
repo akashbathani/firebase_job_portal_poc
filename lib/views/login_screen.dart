@@ -27,15 +27,27 @@ class LoginView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Spacer(flex: 3),
+              const Spacer(flex: 8),
+              Center(child: Image.asset("assets/images/login_icon.png")),
+              const Spacer(flex: 1),
               const Center(
                 child: Text(
                   textAlign: TextAlign.center,
-                  'Welcome \nJob Portal',
+                  'Welcome to Job Portal',
                   style: TextStyle(
-                      fontSize: 42,
+                      fontSize: 30,
                       fontWeight: FontWeight.w600,
                       color: Colors.white,
+                      fontFamily: 'Poppins'),
+                ),
+              ), const Center(
+                child: Text(
+                  textAlign: TextAlign.center,
+                  '  Start your journey to find and apply for a job in Top MNCs.',
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.grey,
                       fontFamily: 'Poppins'),
                 ),
               ),
@@ -43,7 +55,7 @@ class LoginView extends StatelessWidget {
               Center(
                 child: GoogleSignInButton(loginController: loginController),
               ),
-              const Spacer(flex: 2),
+              const Spacer(flex: 4),
             ],
           ),
         ),

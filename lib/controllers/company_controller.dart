@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get/get.dart';
 import 'package:firebase_job_portal_poc/models/company_schema.dart';
 import 'package:firebase_job_portal_poc/services/company_service.dart';
+import 'package:firebase_job_portal_poc/services/firebase_service.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class CompanyController extends GetxController {
   var isLoading = true.obs;
@@ -11,8 +11,8 @@ class CompanyController extends GetxController {
   var appliedCompanies = <int>[].obs;
   var filteredCompanies = <CompanySchema>[].obs;
   var searchQuery = ''.obs;
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+  final FirebaseService _firebaseService = Get.find<FirebaseService>();
 
   @override
   void onInit() {
@@ -37,11 +37,9 @@ class CompanyController extends GetxController {
 
   void loadAppliedCompanies() async {
     try {
-      User? user = _auth.currentUser;
+      var user = _firebaseService.auth.currentUser;
       if (user != null) {
-        DocumentSnapshot userDoc =
-            await _firestore.collection('users').doc(user.uid).get();
-
+        DocumentSnapshot userDoc = await _firebaseService.getUserDocument(user.uid);
         if (userDoc.exists) {
           List<dynamic> appliedList = userDoc['appliedCompanies'] ?? [];
           appliedCompanies.value = appliedList.map((e) => e as int).toList();
@@ -49,22 +47,17 @@ class CompanyController extends GetxController {
         }
       }
     } catch (e) {
-      Get.snackbar(
-          'Error', 'An error occurred while loading applied companies');
+      Get.snackbar('Error', 'An error occurred while loading applied companies');
     }
   }
 
   void addCompany(int companyId) async {
-    User? user = _auth.currentUser;
+    var user = _firebaseService.auth.currentUser;
     bool isSuccess = false;
 
     if (user != null && !appliedCompanies.contains(companyId)) {
       appliedCompanies.add(companyId);
-
-      await _firestore.collection('users').doc(user.uid).update({
-        'appliedCompanies': FieldValue.arrayUnion([companyId])
-      });
-
+      await _firebaseService.updateUserAppliedCompanies(user.uid, companyId);
       updateFilteredCompanies();
       isSuccess = true;
     }
@@ -93,7 +86,7 @@ class CompanyController extends GetxController {
       filteredCompanies.assignAll(
         companies
             .where((company) =>
-                company.title.toLowerCase().contains(query.toLowerCase()))
+            company.title.toLowerCase().contains(query.toLowerCase()))
             .toList(),
       );
     }

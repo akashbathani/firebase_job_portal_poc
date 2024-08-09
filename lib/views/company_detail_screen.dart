@@ -53,11 +53,13 @@ class CompanyDetailScreen extends StatelessWidget {
                   text: _companyController.appliedCompanies.contains(company.id)
                       ? 'Already Applied'
                       : 'Apply Now',
-                  onPressed: () {
-                    Get.back();
-                    _companyController.addCompany(company.id);
-                    _companyController.handlePostApplyActions(true);
-                  },
+                  onPressed:
+                      _companyController.appliedCompanies.contains(company.id)
+                          ? (){}
+                          : () {
+                              Get.back();
+                              _companyController.addCompany(company.id);
+                            },
                 ),
               ],
             ),

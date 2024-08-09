@@ -33,9 +33,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Poppins',
         textTheme: Theme.of(context).textTheme.apply(
-              bodyColor: Colors.black,
-              displayColor: Colors.black,
-            ),
+          bodyColor: Colors.black,
+          displayColor: Colors.black,
+        ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
     );
