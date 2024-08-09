@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "735363224091",
+    "project_id": "fir-job-portal-poc",
+    "storage_bucket": "fir-job-portal-poc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:735363224091:android:828a92cd298fc9df9f9ebe",
+        "android_client_info": {
+          "package_name": "com.example.firebase_job_portal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "735363224091-ijdb64u8qa4lqb4us4evch8kf3e05uv2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.firebase_job_portal",
+            "certificate_hash": "c91764d6ddf699b6eeb5ca07607b81552cf530a5"
+          }
+        },
+        {
+          "client_id": "735363224091-ja68qmepkjptv4ufkpkqt8od3570kq35.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUG9ou2thgEe5eQwubRqx0tLBtfMcdpz4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "735363224091-ja68qmepkjptv4ufkpkqt8od3570kq35.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "735363224091-7qnqqi2f0p0mbhpcb0u3hp9ncjr55l6b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.firebaseJobPortalPoc"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:735363224091:android:5a45ee0d8001e2599f9ebe",
+        "android_client_info": {
+          "package_name": "com.example.firebase_job_portal_poc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "735363224091-ja68qmepkjptv4ufkpkqt8od3570kq35.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUG9ou2thgEe5eQwubRqx0tLBtfMcdpz4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "735363224091-ja68qmepkjptv4ufkpkqt8od3570kq35.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "735363224091-7qnqqi2f0p0mbhpcb0u3hp9ncjr55l6b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.firebaseJobPortalPoc"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
